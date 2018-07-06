@@ -11,7 +11,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 #endif
     /* Layer 0: Default Layer
      * ,-----------------------------------------------------------.
-     * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|  \|  `|
+     * |Fn1|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|  \|  `|
      * |-----------------------------------------------------------|
      * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|Backs|
      * |-----------------------------------------------------------|
@@ -30,7 +30,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 
     /* Layer 1: HHKB mode (HHKB Fn)
      * ,-----------------------------------------------------------.
-     * |Grv| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
+     * |Fn1| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
      * |-----------------------------------------------------------|
      * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |Backs|
      * |-----------------------------------------------------------|
@@ -89,10 +89,12 @@ const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
     [31] = ACTION_MODS_TAP_KEY(MOD_RSFT, KC_BSLASH),
 };
 #else
+// ESC becomes a Function key
 enum function_id {
 	ESCAPE
 };
 
+// activates both the first layer and the ESCAPE function
 const action_t fn_actions[] PROGMEM = {
     [0]  = ACTION_LAYER_MOMENTARY(1),
     [1]  = ACTION_FUNCTION(ESCAPE)
@@ -105,6 +107,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 		uint8_t shifted = get_mods() & (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT));
         uint8_t alted = get_mods() & (MOD_BIT(KC_LGUI) | MOD_BIT(KC_RGUI));
 
+        // if Shift or Alt are held, ESC becomes GRAVE
 		if(layer_state == 0)
 			method(shifted || alted ? KC_GRAVE : KC_ESCAPE);
 		else
