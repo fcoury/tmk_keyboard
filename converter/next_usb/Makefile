@@ -35,10 +35,10 @@ endif
 # MCU name, you MUST set this to match the board you are using
 # type "make clean" after changing this, so all files will be rebuilt
 #MCU = at90usb162       # Teensy 1.0
-#MCU = atmega32u4       # Teensy 2.0
+MCU = atmega32u4       # Teensy 2.0
 #MCU = at90usb646       # Teensy++ 1.0
 #MCU = at90usb1286      # Teensy++ 2.0
-MCU ?= atmega32u2       # TMK converter
+#MCU ?= atmega32u2       # TMK converter
 
 
 # Processor frequency.
@@ -78,7 +78,7 @@ F_USB ?= $(F_CPU)
 #   Atmel DFU loader 4096
 #   LUFA bootloader  4096
 #   USBaspLoader     2048
-OPT_DEFS += -DBOOTLOADER_SIZE=4096
+OPT_DEFS += -DBOOTLOADER_SIZE=512
 
 
 # Build Options

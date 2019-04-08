@@ -1,6 +1,6 @@
 /*
 NeXT non-ADB Keyboard USB Converter
- 
+
 Copyright 2013, Benjamin Gould (bgould@github.com)
 
 Based on:
@@ -70,7 +70,7 @@ const action_t PROGMEM fn_actions[] = {
 };
 
 /* This is the physical layout that I am starting with:
- *   Note: there is some strangeness on the number pad; 
+ *   Note: there is some strangeness on the number pad;
  *         the equal sign shifts to pipe and forward slash shifts to backslash
  * ,-----------------------------------------------------------. ,-----------. ,---------------.
  * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|   BS  | |VUp|Pwr|BrU| |`  |  =|  /|  *|
@@ -116,7 +116,7 @@ const action_t PROGMEM fn_actions[] = {
 
 
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    
+
     /* Layer 0: default
      * ,-----------------------------------------------------------. ,-----------. ,---------------.
      * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|   BS  | |VoU|Mut|PgU| |  `|  \|  /|  *|
@@ -131,12 +131,12 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------' `-----------' `---------------'
      */
     KEYMAP(
-    ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC,  VOLU,MUTE,PGUP,  GRV, BSLS,PSLS,PAST,
-    TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS,  VOLD,     PGDN,  P7,  P8,  P9,  PMNS,
-    LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,                    P4,  P5,  P6,  PPLS,
-    LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,     RSFT,       UP,         P1,  P2,  P3,  
-    LALT,LGUI,                    SPC,                          FN0, RALT,  LEFT,DOWN,RGHT,  P0,       PDOT,PENT
-    
+    ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC,  HOME,END ,PGUP,  NLCK,PSLS,PAST,BSPC,
+    TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS,  DEL,      PGDN,  P7,  P8,  P9,  PMNS,
+    FN0, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,                    P4,  P5,  P6,  PPLS,
+    LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,     RSFT,       UP,         P1,  P2,  P3,
+    LCTL,LALT,                    SPC,                          RGUI, FN0,  LEFT,DOWN,RGHT,  P0,       PDOT,PENT
+
     ),
 
     /* Layer 1: HHKB like
@@ -153,12 +153,12 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------' `-----------' `---------------'
      */
     KEYMAP(
-    
+
     GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL,   TRNS,TRNS,TRNS,  NLCK,TRNS,TRNS,TRNS,
     CAPS,BSLS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS,UP,  INS, TRNS,  TRNS,     TRNS,  TRNS,TRNS,TRNS,TRNS,
     TRNS,VOLD,VOLU,MUTE,TRNS,TRNS,PAST,PSLS,HOME,PGUP,LEFT,RGHT,     TRNS,                   TRNS,TRNS,TRNS,TRNS,
-    TRNS,     FN4, FN5, FN6, FN7, TRNS,PPLS,PMNS,END, PGDN,DOWN,     TRNS,       PGUP,       TRNS,TRNS,TRNS,  
+    TRNS,     FN4, FN5, FN6, FN7, TRNS,PPLS,PMNS,END, PGDN,DOWN,     TRNS,       PGUP,       TRNS,TRNS,TRNS,
     TRNS,TRNS,                    TRNS,                         TRNS,TRNS,  HOME,PGDN,END,   TRNS,     TRNS,TRNS
-    
+
     )
 };
